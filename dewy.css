@@ -326,6 +326,9 @@ header .nav_section{
 	width: 80%;
 	margin: 0 auto;
 }
+.slider-nav-thumbnails .slick-slide div{
+	height: 100px;
+}
 .slider-nav-thumbnails .slick-current img{
 	border: 1px solid #111;
 }
