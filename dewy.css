@@ -47,7 +47,7 @@ body {
 	overflow-x: hidden;
 	position: fixed;
 	top: 0;
-	left: 0;
+	left: 0%;
 }
 
 .popup_main.loaded {
