@@ -176,6 +176,82 @@ body {
 }
 
 /* ---------- Popup Styling End --------- */
+
+/* ------------ Cart CountDown Styling Start ------------>
+        .cart_btn {
+            display: block;
+            margin: 100px auto;
+            padding: 20px 40px;
+            background-color: #000;
+            color: #fff;
+            border-radius: 10px;
+            cursor: pointer;
+            pointer-events: all;
+        }
+
+        .cart_sec {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            padding: 10px 20px;
+            background-color: #fff;
+            transform: translateX(100%);
+            transition: all 0.5s linear;
+        }
+
+        .cart_sec.visible {
+            transform: translateX(0);
+        }
+
+        .cart_top {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #000;
+        }
+
+        .cart_heading {
+            width: calc(100% - 35px);
+            font-size: 16px;
+        }
+
+        .header_btn.cart_close_btn {
+            width: 100%;
+            max-width: 35px;
+            height: 35px;
+            background: transparent;
+            border: 0;
+            cursor: pointer;
+        }
+
+        .header_btn .close_icon {
+            font-size: 30px;
+        }
+
+        .countdown {
+            width: 100%;
+            border: 2px solid #000;
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin: 15px auto;
+            text-align: center;
+        }
+
+        .countdown_heading {
+            line-height: 20px;
+            font-size: 18px;
+            letter-spacing: 1px;
+            font-family: 'Gill Sans', sans-serif;
+        }
+/* ------------ Cart CountDown Styling End ------------>
+
+
+
+
 /* General Slick Styling Start */
 .slick-slide {
 	display: block;
