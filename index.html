@@ -41,6 +41,26 @@
 		</div>
 	</section>
 	<!-- ------- Popup End ------ -->
+	<!------- Cart CountDown ----->
+	<div class="cart_sec">
+        <div class="cart_top">
+            <h1 class="cart_heading">
+                Your Cart
+            </h1>
+            <button class="header_btn cart_close_btn">
+                <span class="close_icon">&cross;</span>
+            </button>
+        </div>
+        <div class="countdown">
+            <h2 class="countdown_heading">
+                You cart will be lost in <span id="timer"></span>
+            </h2>
+        </div>
+    </div>
+	<!--------- Cart CountDown End ------>
+
+
+	
 	<div class="wrapper">
 		<header>
 			<section class="annc_slider"> <!-- Announcement BAr Slider -->
@@ -1224,6 +1244,55 @@
 		// Popup Functionality End
 
 	</script>
+			<!------------- Cart CountDowm Script ------------->
+			<script>
+        document.querySelector('.add_cart_btn').addEventListener('click', function () {
+            document.querySelector('.cart_sec').classList.add('visible')
+        })
+        document.querySelector('.cart_close_btn').addEventListener('click', function () {
+            document.querySelector('.cart_sec').classList.remove('visible')
+        })
+
+        let remaining_time = 0;
+        // Check in local storage
+        const stored_time = localStorage.getItem('countdown_timer');
+        if (stored_time) {
+            remaining_time = parseInt(stored_time);
+        } else {
+            remaining_time = 10; // 10 sec
+        }
+
+        // countdown timer
+        function startCountdown() {
+            const interval_id = setInterval(() => {
+                if (remaining_time === 0) {
+                    clearInterval(interval_id);
+                    remaining_time = 10;
+                    localStorage.removeItem('countdown_timer');
+                    startCountdown();
+                } else {
+                    remaining_time--;
+                    localStorage.setItem('countdown_timer', remaining_time);
+                    update_timer();
+                }
+            }, 1000);
+        }
+
+        // Update timer tn the page
+        function update_timer() {
+            // const hours = Math.floor(remaining_time / 3600);
+            const minutes = Math.floor(remaining_time / 60);
+            const seconds = remaining_time % 60;
+            const timerDisplay = document.getElementById('timer');
+            timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        // strt countdown timer
+        startCountdown();
+
+
+    </script>
+			<!--------- Cart CountDown Script End ------->
 </body>
 
 </html>
